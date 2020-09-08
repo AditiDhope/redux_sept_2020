@@ -1,0 +1,16 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "title": "Note 20G",
+      "description": "Prebooking needed!",
+      "likes": 8
+    },
+    {
+      "title": "Check Pro",
+      "description": "owow",
+      "likes": 0,
+      "id": 2
+    }
+  ]
+}
