@@ -1,4 +1,4 @@
-const reducerAllFriends = function createFriendsReducer(){
+const reducerAllFriends = function createFriendsReducer(state=null, action){
     var allfriends =[
         {
             id:1,
@@ -21,6 +21,14 @@ const reducerAllFriends = function createFriendsReducer(){
             location:'Jodhpur'
         }
     ]
+    switch (action.type) {
+        case "PLUS_CLICKED":
+            return state
+           
+    
+        default:
+            break;
+    }
 
     return allfriends
 }

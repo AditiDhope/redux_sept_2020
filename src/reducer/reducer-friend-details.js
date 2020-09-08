@@ -1,4 +1,4 @@
-const reducerFriendDetails = function createFriendDetails(){
+const reducerFriendDetails = function createFriendDetails(state =null, action){
     var friendDetails =[
         {
             id:1,
@@ -21,6 +21,29 @@ const reducerFriendDetails = function createFriendDetails(){
             otherfriendscount:80
         }
     ]
+    console.log("State in reducerFriendDetails: ");
+    console.log(state);
+    console.log("Value of action in reducerFriendDetails:");
+    console.log(action);
+    switch (action.type) {
+        case "PLUS_CLICKED":
+            console.log("Increment the otherfriendscount by 1 for friend with id :" + action.payload.id);
+            var updatedFriendDetails = state.map(obj =>{
+                if(obj.id === action.payload.id){
+                    obj.otherfriendscount++
+                    return obj
+                }
+                return obj
+            })
+            return updatedFriendDetails
+        
+        case "FRIEND_CLICKED":
+            return state
+                
+    
+        default:
+            break;
+    }
 
     return friendDetails
 }
