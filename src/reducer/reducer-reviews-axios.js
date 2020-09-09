@@ -1,7 +1,7 @@
 const reducerReviews = function getReviews(state = null, action){
     var reviews = []
     switch (action.type) {
-        case "REVEIVED_REVIEWS":
+        case "RECEIVED_REVIEWS":
             return action.payload
         case "PLUS_CLICKED":
             return state    

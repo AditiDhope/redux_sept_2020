@@ -22,10 +22,32 @@ class Review extends React.Component {
             })
     }
 
+    renderAllReviewsFromProps=()=>{
+        return this.props.reviews.map(review => {
+            return (
+                <li key={review.id}>{review.title}</li>
+            )
+        })
+    }
+
     render() { 
-        return ( 
-            <div>List of reviews from api!!!!</div>
-         );
+        if(this.props.reviews.length === 0){
+            return ( 
+                <div>Loading list of reviews from api!!!!</div>
+             )
+        }else{
+            return ( 
+            <div>
+                <div> Reviews from api!!!!</div>    
+                <div>
+                    <ol>
+                        {this.renderAllReviewsFromProps()}
+                    </ol>
+                </div>
+            </div>
+         )
+        }
+        
     }
 }
  
@@ -35,4 +57,14 @@ function convertEventToPropsAndDispatch(dispatch){
  }, dispatch)
 }
 
-export default connect(null, convertEventToPropsAndDispatch)(Review);
+
+function convertStoreToProps(store){
+    console.log("Received store in Reviews container....");
+    console.log(store);
+    return {
+        reviews: store.allreviews
+    }
+
+}
+
+export default connect(convertStoreToProps, convertEventToPropsAndDispatch)(Review);

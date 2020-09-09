@@ -3,7 +3,7 @@ const broadcastreviews = function(reviews){
     console.log(reviews)
     console.log("Reducer will capture this broadcast: type+payload....");
     return {
-        type:"REVEIVED_REVIEWS",
+        type:"RECEIVED_REVIEWS",
         payload:reviews
     }
 
